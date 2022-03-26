@@ -8,13 +8,13 @@ namespace SolarFarm.Core.DTO
 {
     public class SectionConfig
     {
-        public List<Section> Sections { get; set; }
+        public List<@string> Sections { get; set; }
 
         public SectionConfig()
         {
-            Sections = new List<Section>();
+            Sections = new List<@string>();
         }
-        public SectionConfig(List<Section> sections)
+        public SectionConfig(List<@string> sections)
         {
             Sections = sections;
         }

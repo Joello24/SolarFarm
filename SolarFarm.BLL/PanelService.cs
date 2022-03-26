@@ -15,10 +15,15 @@ namespace SolarFarm.BLL
         {
             _repo = repo;
         }
-        public Result<List<Section>> GetSections()
+
+        public List<string> FindUniqueSections()
         {
-            Result<List<Section>> result = new Result<List<Section>>();
-            result.Data = new List<Section>();
+            return _repo.FindUniqueSections();
+        }
+        public Result<List<string>> GetSections()
+        {
+            Result<List<string>> result = new Result<List<string>>();
+            result.Data = new List<string>();
             foreach (Panel s in _repo.GetAll().Data)
             {
                 if (!result.Data.Contains(s.Section))
@@ -33,7 +38,7 @@ namespace SolarFarm.BLL
         public Result<Panel> Add(Panel panel)
         {
             Result<List<Panel>> panels = new Result<List<Panel>>();
-            Result<List<Section>> sections = new Result<List<Section>>();
+            Result<List<string>> sections = new Result<List<string>>();
             sections = GetSections();
             panels = _repo.GetAll();
             Result<Panel> result = new Result<Panel>();
@@ -76,14 +81,14 @@ namespace SolarFarm.BLL
                 result.Success = false;
                 result.Message = "Not tracking";
             }
-            else
+            if(result.Success)
             {
                 result =_repo.Add(panel);
             }
             return result;
         }
 
-        public Result<Panel> Get(Section section, int row, int column)
+        public Result<Panel> Get(string section, int row, int column)
         {
             Result<List<Panel>> panels = new Result<List<Panel>>();
             panels = _repo.GetAll();
@@ -94,7 +99,7 @@ namespace SolarFarm.BLL
                 foreach (Panel panel in panels.Data)
                 {
 
-                    if (panel.Row == row && panel.Column == column && panel.Section.Name == section.Name)
+                    if (panel.Row == row && panel.Column == column && panel.Section == section)
                     {
                         result.Data = panel;
                         result.Success = true;
@@ -108,7 +113,7 @@ namespace SolarFarm.BLL
             return result;
         }
 
-        public Result<List<Panel>> LoadSection(Section section)
+        public Result<List<Panel>> LoadSection(string section)
         {
             Result<List<Panel>> result = new Result<List<Panel>>();
             Result<List<Panel>> panels = new Result<List<Panel>>();
@@ -126,7 +131,7 @@ namespace SolarFarm.BLL
             result.Message = "No Panels in that section";
             foreach (Panel panel in panels.Data)
             {
-                if (panel.Section.Name == section.Name)
+                if (panel.Section == section)
                 {
                     result.Data.Add(panel);
                     result.Success=true;
@@ -136,7 +141,7 @@ namespace SolarFarm.BLL
             return result;
         }
 
-        public Result<Panel> Remove(Section section, int row, int column)
+        public Result<Panel> Remove(string section, int row, int column)
         {
             Result<List<Panel>> panels = new Result<List<Panel>>();
             panels = _repo.GetAll();
@@ -148,11 +153,10 @@ namespace SolarFarm.BLL
                 result.Message = "Can't find panel!";
                 return result;
             }
-
             if (panels.Data.Contains(panel.Data) || PanelExists(panel.Data).Success)
             {
                
-                result = _repo.Remove(panel.Data);
+                result = _repo.Delete(panel.Data);
             }
             else
             {
@@ -189,6 +193,7 @@ namespace SolarFarm.BLL
 
             Result<Panel> result = new Result<Panel>();
             result = _repo.FindPanel(panel.Section, panel.Row, panel.Column);
+            
             return result;
         }
         private Result<Panel> ValidatePanel(Panel panel)

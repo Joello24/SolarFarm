@@ -9,14 +9,15 @@ namespace SolarFarm.Core.Interface
 {
     public interface  IPanelService
     {
-        Result<List<Panel>> LoadSection(Section section);     
-        Result<Panel> Get(Section section, int row, int column);                              
+        Result<List<Panel>> LoadSection(string section);     
+        Result<Panel> Get(string section, int row, int column);                              
         Result<Panel> Add(Panel panel);                          
-        Result<Panel> Remove(Section section, int row, int column);                           
+        Result<Panel> Remove(string section, int row, int column);                           
         Result<Panel> Update(Panel panel);                         
         Result<string> SaveQuit();
-
-        Result<List<Section>> GetSections();
+        
+        Result<List<string>> GetSections();
         public Result<Panel> PanelExists(Panel panel);
+        List<string> FindUniqueSections();
     }
 }

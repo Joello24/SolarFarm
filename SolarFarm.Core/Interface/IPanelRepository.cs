@@ -11,9 +11,10 @@ namespace SolarFarm.Core.Interface
     {
         Result<List<Panel>> GetAll();       
         Result<Panel> Add(Panel panel);  
-        Result<Panel> Remove(Panel panel);  
+        Result<Panel> Delete(Panel panel);  
         Result<Panel> Update(Panel panel); 
         Result<string> SaveQuit();
-        public Result<Panel> FindPanel(Section section, int row, int column);
+        public Result<Panel> FindPanel(string section, int row, int column);
+        List<string> FindUniqueSections();
     }
 }

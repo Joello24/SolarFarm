@@ -14,7 +14,7 @@ namespace SolarFarm.DAL
         {
             Panel result = new Panel();
             string[] columns = data.Split(',');
-            result.Section.Name = columns[0];
+            result.Section = columns[0];
             result.Row = int.Parse(columns[1]);
             result.Column = int.Parse(columns[2]);
             result.Year = int.Parse(columns[3]);
@@ -39,7 +39,7 @@ namespace SolarFarm.DAL
 
         public string Serialize(Panel panel)
         {
-            return $"{panel.Section.Name}, {panel.Row},{panel.Column}, {panel.Year}, {panel.Material}, {panel.isTracking}, {panel.ID}";
+            return $"{panel.Section}, {panel.Row},{panel.Column}, {panel.Year}, {panel.Material}, {panel.isTracking}, {panel.ID}";
         }
     }
 }

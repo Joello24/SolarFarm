@@ -102,10 +102,10 @@ namespace SolarFarm.UI
             string holder;
             while (!valid)
             {
-                Display($"Editing {panel.Section.Name}-{panel.Row}-{panel.Column}");
+                Display($"Editing {panel.Section}-{panel.Row}-{panel.Column}");
                 Display("Press [Enter] to keep original value");
 
-                Console.Write($"Section {panel.Section.Name}: ");
+                Console.Write($"Section {panel.Section}: ");
                 holder = Console.ReadLine();
 
                 if (string.IsNullOrEmpty(holder))
@@ -114,7 +114,7 @@ namespace SolarFarm.UI
                 }
                 else
                 {
-                    ret.Section.Name = holder;
+                    ret.Section = holder;
                 }
 
                 Console.Write($"Row {panel.Row}: ");
@@ -195,7 +195,7 @@ namespace SolarFarm.UI
             return ret;
         }
 
-        public Panel GetPanelSecRowCol(List<Section> sections)
+        public Panel GetPanelSecRowCol(List<string> sections)        
         {
             bool valid = false;
             Panel panel = new Panel();
@@ -208,7 +208,7 @@ namespace SolarFarm.UI
             }
             return panel;
         }
-        public Panel GetPanel(List<Section> sections)
+        public Panel GetPanel(List<string> sections)
         {
             bool valid = false;
             Panel panel = new Panel();
@@ -225,41 +225,41 @@ namespace SolarFarm.UI
                     else
                         valid = true;
                 }
-                panel.Material = (Material) 1;
+                panel.Material = (Material)GetInt("Material [1-5]: ");
                 panel.isTracking = GetYesOrNo("Tracked? [y/n]: ");
                 valid = true;
             }
             return panel;
         }
-        internal Section GetSection(string prompt, List<Section> sections)
+        internal string GetSection(string prompt, List<string> sections)
         {
-            Section section = new Section();
-
+            string section = "";
             while (true)
             {
                 if (sections == null)
                 {
-                    Warn("No sections to display!");
+                    Error("No sections to display!");
                 }
                 else
                 {
 
-                    foreach (Section s in sections)
+                    foreach (string s in sections)
                     {
-                        Display($"{s.Name.ToString()}");
+                        Error($"{s.ToString()}");
                     }
                 }
                 Console.Write($"{prompt}: ");
                 Console.ForegroundColor= ConsoleColor.Green;
                 Console.Write("~ ");
                 string result = Console.ReadLine();
-                Section ret = new Section();
+                string ret;
                 
-                ret.Name = result;
+                ret = result;
+                Console.ResetColor();
                 return ret;
             }
         }
-        internal Section CreateSection(string prompt)
+        internal string CreateSection(string prompt)
         {
             while (true)
             {
@@ -267,9 +267,10 @@ namespace SolarFarm.UI
                 Console.ForegroundColor= ConsoleColor.Green;
                 Console.Write("~ ");
                 string result = Console.ReadLine();
-                Section ret = new Section();
+                string ret;
 
-                ret.Name = result;
+                ret = result;
+                Console.ResetColor();
                 return ret;
             }
         }
@@ -295,7 +296,7 @@ namespace SolarFarm.UI
         {
             while (true)
             {
-                Display(message);
+                Console.Write(message);
                 Console.ForegroundColor= ConsoleColor.Green;
                 Console.Write("~ ");
                 string sender = Console.ReadLine();

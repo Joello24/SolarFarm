@@ -23,19 +23,19 @@ namespace SolarFarm.UI
         {
             _ui.Display("Configuration mode");
             _ui.Display("===========================");
-            _ui.Display("1. Add Section");
+            _ui.Display("1. Add string");
             _ui.Display("2. Add a Panel");
             _ui.Display("3. Update a Panel");
             _ui.Display("4. Remove a Panel");
             _ui.Display("Select [0-4]");
         }
-        public List<Section> Setup()
+        public List<string> Setup()
         {
             _ui.Error("Entering Initial Configuration");
             _ui.Error("------------------------------");
             _ui.Error("Add sections: ");
 
-            List<Section> sections = new List<Section>();
+            List<string> sections = new List<string>();
             bool isSettingUp = true;
             sections.Add(_ui.CreateSection(""));
             while (isSettingUp)
@@ -88,12 +88,14 @@ namespace SolarFarm.UI
         private void QuitSave()
         {
             Result<string> ret;
+            Console.ForegroundColor = ConsoleColor.Blue;
             bool save = _ui.GetYesOrNo("Quitting, would you like to save changes to database? (Y/N): ");
+            Console.ResetColor();   
             if (save)
             {
                 ret = Service.SaveQuit();
                 if (ret.Success)
-                    _ui.Error("hi");
+                    _ui.Error("Save Successful!");
                 //_ui.Display(ret.Data.ToString());
                 else
                     _ui.Display(ret.Message);
@@ -116,41 +118,43 @@ namespace SolarFarm.UI
             _ui.Display("4. Remove a Panel");
             _ui.Display("Select [0-4]");
         }
-        public Result<List<Section>> GetAllSections()
+        public Result<List<string>> GetAllSections()
         {
-            Result<List<Section>> list = new Result<List<Section>>();
-            list = Service.GetSections();
+            Result<List<string>> list = new Result<List<string>>();
+            //list = Service.GetSections();
+            list.Data = Service.FindUniqueSections();
             return list;
         }
+      
         public void LoadPanel()
         {
             Result<Panel> ret;
             Panel p = _ui.GetPanelSecRowCol(GetAllSections().Data);
             ret = Service.Get(p.Section, p.Row, p.Column);
             if (ret.Success)
-                _ui.Display(ret.Data.ToString());
+                _ui.Warn(ret.Data.ToString());
             else
-                _ui.Display(ret.Message);
+                _ui.Error(ret.Message);
         }
         public void FindPanelsBySection()
         {
             Result<List<Panel>> ret;
-            Section section = _ui.GetSection("Section: ", GetAllSections().Data);
+            string section = _ui.GetSection("Section: ", GetAllSections().Data);
             ret = Service.LoadSection(section);
             if (ret.Success)
                 foreach(Panel p in ret.Data)
-                    _ui.Display(p.ToString());
+                    _ui.Warn(p.ToString());
             else
-                _ui.Display(ret.Message);
+                _ui.Error(ret.Message);
         }
         public void AddPanel()
         {
             Result<Panel> ret;
             ret = Service.Add(_ui.GetPanel(GetAllSections().Data));
             if (ret.Success)
-                _ui.Display(ret.Data.ToString());
+                _ui.Warn(ret.Data.ToString());
             else
-                _ui.Display(ret.Message);
+                _ui.Error(ret.Message);
         }
         public void UpdatePanel() 
         {
@@ -162,10 +166,11 @@ namespace SolarFarm.UI
             if (returnCurrent.Success)
             {
                 returnEdit = Service.Update(_ui.UpdatePanel(returnCurrent.Data));
+                RemovePanel(returnCurrent.Data.Section, returnCurrent.Data.Row, returnCurrent.Data.Column);
                 if (returnEdit.Success)
-                    _ui.Display(returnEdit.Data.ToString());
+                    _ui.Warn(returnEdit.Data.ToString());
                 else
-                    _ui.Display(returnEdit.Message);
+                    _ui.Error(returnEdit.Message);
             }
 
             else
@@ -182,9 +187,20 @@ namespace SolarFarm.UI
             ret = Service.Remove(p.Section, p.Row, p.Column);
 
             if (ret.Success)
-                _ui.Display(ret.Data.ToString());
+                _ui.Warn(ret.Data.ToString());
             else
-                _ui.Display(ret.Message);
+                _ui.Error(ret.Message);
+        }
+        public void RemovePanel(string section, int row, int column)
+        {
+            Result<Panel> ret;
+            
+            ret = Service.Remove(section, row, column);
+
+            if (ret.Success)
+                _ui.Warn(ret.Data.ToString());
+            else
+                _ui.Error(ret.Message);
         }
     }
 }

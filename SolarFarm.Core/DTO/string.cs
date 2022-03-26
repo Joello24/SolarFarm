@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SolarFarm.Core.DTO
 {
-    public class Section
+    public class @string
     {
         public string? Name { get; set; }
         public int rows { get; set; }

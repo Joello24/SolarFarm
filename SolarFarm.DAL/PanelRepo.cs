@@ -75,7 +75,7 @@ namespace SolarFarm.DAL
             return result;
         }
 
-        public Result<Panel> Remove(Panel panel)
+        public Result<Panel> Delete(Panel panel)
         {
             Result<Panel> result = new Result<Panel>();
             result.Data = panel;
@@ -95,11 +95,13 @@ namespace SolarFarm.DAL
         public Result<Panel> Update(Panel panel)
         {
             Result<Panel> result = new Result<Panel>();
-            _panels[panel.ID] = panel;
+            result = FindPanel(panel.Section, panel.Row, panel.Column);
+            Delete(result.Data);
+            _panels.Add(panel);
+            result.Data = panel;
             result.Success = true;
             result.Message = "Updated!";
             result.Data = panel;
-
             return result;
         }
         
@@ -143,7 +145,7 @@ namespace SolarFarm.DAL
             return result;
 
         }
-        public Result<Panel> FindPanel(Section section, int row, int column)
+        public Result<Panel> FindPanel(string section, int row, int column)
         {
             Result<Panel> result = new Result<Panel>();
             foreach (Panel panel in _panels)
@@ -162,5 +164,19 @@ namespace SolarFarm.DAL
             result.Message = "Panel not found!";
             return result;
         }
+
+        public List<string> FindUniqueSections()
+        {
+            List<string> sections = new List<string>();
+            foreach (Panel panel in _panels)
+            {
+                if (!sections.Contains(panel.Section))
+                {
+                    sections.Add(panel.Section);
+                }
+            }
+            return sections;
+        }  
     }
+    
 }
