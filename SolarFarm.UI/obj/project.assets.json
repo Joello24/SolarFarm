@@ -1,0 +1,142 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "SolarFarm.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SolarFarm.Core": "1.0.0",
+          "SolarFarm.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SolarFarm.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SolarFarm.BLL.dll": {}
+        }
+      },
+      "SolarFarm.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SolarFarm.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SolarFarm.Core.dll": {}
+        }
+      },
+      "SolarFarm.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SolarFarm.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SolarFarm.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SolarFarm.DAL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SolarFarm.BLL/1.0.0": {
+      "type": "project",
+      "path": "../SolarFarm.BLL/SolarFarm.BLL.csproj",
+      "msbuildProject": "../SolarFarm.BLL/SolarFarm.BLL.csproj"
+    },
+    "SolarFarm.Core/1.0.0": {
+      "type": "project",
+      "path": "../SolarFarm.Core/SolarFarm.Core.csproj",
+      "msbuildProject": "../SolarFarm.Core/SolarFarm.Core.csproj"
+    },
+    "SolarFarm.DAL/1.0.0": {
+      "type": "project",
+      "path": "../SolarFarm.DAL/SolarFarm.DAL.csproj",
+      "msbuildProject": "../SolarFarm.DAL/SolarFarm.DAL.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "SolarFarm.BLL >= 1.0.0",
+      "SolarFarm.Core >= 1.0.0",
+      "SolarFarm.DAL >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Joello\\.nuget\\packages\\": {},
+    "A:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.UI\\SolarFarm.UI.csproj",
+      "projectName": "SolarFarm.UI",
+      "projectPath": "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.UI\\SolarFarm.UI.csproj",
+      "packagesPath": "C:\\Users\\Joello\\.nuget\\packages\\",
+      "outputPath": "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.UI\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "A:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Joello\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.BLL\\SolarFarm.BLL.csproj": {
+              "projectPath": "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.BLL\\SolarFarm.BLL.csproj"
+            },
+            "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.Core\\SolarFarm.Core.csproj": {
+              "projectPath": "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.Core\\SolarFarm.Core.csproj"
+            },
+            "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.DAL\\SolarFarm.DAL.csproj": {
+              "projectPath": "Q:\\Dev10\\Modules\\Module3\\SolarFarm2\\SolarFarm2\\SolarFarm.DAL\\SolarFarm.DAL.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

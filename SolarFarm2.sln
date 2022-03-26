@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarFarm.UI", "SolarFarm.UI\SolarFarm.UI.csproj", "{2EA1EF4E-BAC7-4E31-BF8B-2FCA91CF76BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarFarm.BLL", "SolarFarm.BLL\SolarFarm.BLL.csproj", "{7D4827E9-1642-4D65-BA10-88B058BCE3DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarFarm.DAL", "SolarFarm.DAL\SolarFarm.DAL.csproj", "{6E401BBC-5582-4113-A8A9-7C302BB9623F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarFarm.Core", "SolarFarm.Core\SolarFarm.Core.csproj", "{7BF9F7E4-2233-4A78-9B64-136411D665DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EA1EF4E-BAC7-4E31-BF8B-2FCA91CF76BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA1EF4E-BAC7-4E31-BF8B-2FCA91CF76BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA1EF4E-BAC7-4E31-BF8B-2FCA91CF76BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA1EF4E-BAC7-4E31-BF8B-2FCA91CF76BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4827E9-1642-4D65-BA10-88B058BCE3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4827E9-1642-4D65-BA10-88B058BCE3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4827E9-1642-4D65-BA10-88B058BCE3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4827E9-1642-4D65-BA10-88B058BCE3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E401BBC-5582-4113-A8A9-7C302BB9623F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E401BBC-5582-4113-A8A9-7C302BB9623F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E401BBC-5582-4113-A8A9-7C302BB9623F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E401BBC-5582-4113-A8A9-7C302BB9623F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF9F7E4-2233-4A78-9B64-136411D665DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF9F7E4-2233-4A78-9B64-136411D665DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF9F7E4-2233-4A78-9B64-136411D665DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF9F7E4-2233-4A78-9B64-136411D665DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {716FD506-AE48-4DA9-9415-4378E8DA8361}
+	EndGlobalSection
+EndGlobal
