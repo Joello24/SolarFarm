@@ -12,7 +12,7 @@ namespace SolarFarm.DAL
     {
         private List<Panel> _panels;
 
-        private string PATH = Directory.GetCurrentDirectory() + @"Panels.csv";
+        public string PATH = Directory.GetCurrentDirectory() + @"Panels.csv";
         private PanelCSVFormatter formatter = new PanelCSVFormatter();
         public PanelRepo()
         {

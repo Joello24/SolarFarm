@@ -3,7 +3,7 @@ using SolarFarm.Core.DTO;
 using SolarFarm.DAL;
 namespace SolarFarm.UI
 {
-    class ConsoleIO
+    public class ConsoleIO
     {
         public int GetInt(string prompt)
         {

@@ -1,8 +1,3 @@
-Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.csproj.AssemblyReference.cache
-Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.GeneratedMSBuildEditorConfig.editorconfig
-Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.AssemblyInfoInputs.cache
-Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.AssemblyInfo.cs
-Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.csproj.CoreCompileInputs.cache
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\bin\Debug\net6.0\SolarFarm.BLL.deps.json
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\bin\Debug\net6.0\SolarFarm.BLL.dll
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\bin\Debug\net6.0\SolarFarm.BLL.pdb
@@ -10,6 +5,11 @@ Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\bin\Debug\net6.0\So
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\bin\Debug\net6.0\SolarFarm.DAL.dll
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\bin\Debug\net6.0\SolarFarm.Core.pdb
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\bin\Debug\net6.0\SolarFarm.DAL.pdb
+Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.csproj.AssemblyReference.cache
+Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.GeneratedMSBuildEditorConfig.editorconfig
+Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.AssemblyInfoInputs.cache
+Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.AssemblyInfo.cs
+Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.csproj.CoreCompileInputs.cache
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.csproj.CopyComplete
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\SolarFarm.BLL.dll
 Q:\Dev10\Modules\Module3\SolarFarm2\SolarFarm2\SolarFarm.BLL\obj\Debug\net6.0\refint\SolarFarm.BLL.dll

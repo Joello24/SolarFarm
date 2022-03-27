@@ -43,12 +43,13 @@ namespace SolarFarm.BLL
             panels = _repo.GetAll();
             Result<Panel> result = new Result<Panel>();
 
+            result.Success = true;
+            result.Message = "Added panel!";
             if (panels.Data == null)
             {
                 result =_repo.Add(panel);
                 return result;
             }
-
             if (panels.Data.Contains(panel) || PanelExists(panel).Success)
             {
                 result.Success = false;
@@ -229,11 +230,11 @@ namespace SolarFarm.BLL
                 result.Success = false;
                 result.Message = "Invalid Material";
             }
-            if (!panel.isTracking)
-            {
-                result.Success = false;
-                result.Message = "Not tracking";
-            }
+            //if (!panel.isTracking)
+            //{
+            //    result.Success = false;
+            //    result.Message = "Not tracking";
+            //}
             else
             {
                 result.Success = true;

@@ -14,4 +14,11 @@
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SolarFarm.BLL\SolarFarm.BLL.csproj" />
+    <ProjectReference Include="..\SolarFarm.Core\SolarFarm.Core.csproj" />
+    <ProjectReference Include="..\SolarFarm.DAL\SolarFarm.DAL.csproj" />
+    <ProjectReference Include="..\SolarFarm.UI\SolarFarm.UI.csproj" />
+  </ItemGroup>
+
 </Project>
