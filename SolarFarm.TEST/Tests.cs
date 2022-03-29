@@ -8,11 +8,9 @@ using System.IO;
 
 namespace SolarFarm.TEST
 {
-    
     [TestFixture]
     public class Add
     {
-
         Panel validPanel = new Panel();
         Panel duplicatePanel = new Panel();
         Panel panelInvalidColumn = new Panel();
@@ -62,7 +60,6 @@ namespace SolarFarm.TEST
             panelWithOutOfBoundsYear.Year = 2023;
             panelWithOutOfBoundsYear.isTracking = true;
         }
-     
         [Test]
         public void TestAddValidPanel()
         {
@@ -136,14 +133,13 @@ namespace SolarFarm.TEST
             validPanelUpdater.Year = 2020;
             validPanelUpdater.isTracking = true;
         }
-
         [Test]
         public void TestUpdateRow()
         {
             Result<Panel> result = new Result<Panel>();
             service.Add(validPanel);
             validPanelUpdater.Row = 2;
-            result = service.Update(validPanelUpdater);
+            result = service.Update(validPanelUpdater, validPanelUpdater);
 
             Assert.IsTrue(result.Success);
             Assert.AreEqual(result.Data.Row, 2);
@@ -152,28 +148,81 @@ namespace SolarFarm.TEST
         public void TestUpdateYear()
         {
             Result<Panel> result = new Result<Panel>();
+            service.Add(validPanel);
+            validPanelUpdater.Year = 2;
+            result = service.Update(validPanelUpdater, validPanelUpdater);
 
-            validPanelUpdater.Row = 2;
-            result = service.Update(validPanelUpdater);
-            Assert.AreEqual(result.Data.Row, validPanelUpdater.Row);
+            Assert.IsTrue(result.Success);
+            Assert.AreEqual(result.Data.Year, 2);
         }
         [Test]
         public void TestUpdateColumn()
         {
             Result<Panel> result = new Result<Panel>();
+            service.Add(validPanel);
+            validPanelUpdater.Column = 2;
+            result = service.Update(validPanelUpdater, validPanelUpdater);
 
-            validPanelUpdater.Row = 2;
-            result = service.Update(validPanelUpdater);
-            Assert.AreEqual(result.Data.Row, validPanelUpdater.Row);
+            Assert.IsTrue(result.Success);
+            Assert.AreEqual(result.Data.Column, 2);
         }
         [Test]
         public void TestUpdateSection()
         {
             Result<Panel> result = new Result<Panel>();
+            service.Add(validPanel);
+            validPanelUpdater.Section= "Not Main";
+            result = service.Update(validPanelUpdater, validPanelUpdater);
 
-            validPanelUpdater.Row = 2;
-            result = service.Update(validPanelUpdater);
-            Assert.AreEqual(result.Data.Row, validPanelUpdater.Row);
+            Assert.IsTrue(result.Success);
+            Assert.AreEqual(result.Data.Section, "Not Main");
+        }
+    }
+    [TestFixture]
+    public class Remove
+    {
+        Panel validPanel = new Panel();
+        Panel InvalidPanel = new Panel();
+        public PanelService service;
+        [SetUp]
+        public void Setup()
+        {
+            PanelRepo panelRepository = new();
+            panelRepository.PATH = Directory.GetCurrentDirectory() + @"Panels.csv";
+            service = new PanelService(panelRepository);
+
+            validPanel.Section = "Main";
+            validPanel.Row = 1;
+            validPanel.Column = 1;
+            validPanel.Material = Material.monocrystallineSilicon;
+            validPanel.Year = 2020;
+            validPanel.isTracking = true;
+
+            InvalidPanel.Section = "Main";
+            InvalidPanel.Row = 50;
+            InvalidPanel.Column = 1;
+            InvalidPanel.Material = Material.monocrystallineSilicon;
+            InvalidPanel.Year = 2020;
+            InvalidPanel.isTracking = true;
+        }
+        [Test]
+        public void TestValidRemove()
+        {
+            Result<Panel> result = new Result<Panel>();
+            service.Add(validPanel);
+            result = service.Remove(validPanel.Section, validPanel.Row, validPanel.Column);
+
+            Assert.IsTrue(result.Success);
+        }
+        [Test]
+        public void TestInvalidRemove()
+        {
+            Result<Panel> result = new Result<Panel>();
+            service.Add(validPanel);
+            result = service.Remove(InvalidPanel.Section, InvalidPanel.Row, InvalidPanel.Column);
+
+            Assert.IsFalse(result.Success);
+            //Assert.AreEqual(service.Get(InvalidPanel.Section, validPanel.Row,validPanel.Column));
         }
     }
 }

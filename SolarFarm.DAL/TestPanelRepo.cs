@@ -69,16 +69,13 @@ namespace SolarFarm.DAL
             return result;
         }
 
-        public Result<Panel> Update(Panel panel)
+        public Result<Panel> Update(Panel newPanel, Panel oldPanel)
         {
             Result<Panel> result = new Result<Panel>();
-            result = FindPanel(panel.Section, panel.Row, panel.Column);
-            Delete(result.Data);
-            _panels.Add(panel);
-            result.Data = panel;
+
+            result.Data = newPanel;
             result.Success = true;
             result.Message = "Updated!";
-            result.Data = panel;
             return result;
         }
 

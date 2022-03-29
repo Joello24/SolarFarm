@@ -89,7 +89,7 @@ namespace SolarFarm.UI
         {
             Result<string> ret;
             Console.ForegroundColor = ConsoleColor.Blue;
-            bool save = _ui.GetYesOrNo("Quitting, would you like to save changes to database? (Y/N): ");
+            bool save = _ui.GetYesOrNo("Quitting, would you like to save changes to drive? (Y/N): ");
             Console.ResetColor();   
             if (save)
             {
@@ -165,8 +165,7 @@ namespace SolarFarm.UI
 
             if (returnCurrent.Success)
             {
-                returnEdit = Service.Update(_ui.UpdatePanel(returnCurrent.Data));
-                RemovePanel(returnCurrent.Data.Section, returnCurrent.Data.Row, returnCurrent.Data.Column);
+                returnEdit = Service.Update(_ui.UpdatePanel(returnCurrent.Data), returnCurrent.Data);
                 if (returnEdit.Success)
                     _ui.Warn(returnEdit.Data.ToString());
                 else

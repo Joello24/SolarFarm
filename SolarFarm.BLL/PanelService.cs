@@ -20,6 +20,8 @@ namespace SolarFarm.BLL
         {
             return _repo.FindUniqueSections();
         }
+
+        // NOT CURRENTLY USED, OLD LOGIC FOR NONEXISTANT SECTION VALIDATION
         public Result<List<string>> GetSections()
         {
             Result<List<string>> result = new Result<List<string>>();
@@ -88,7 +90,6 @@ namespace SolarFarm.BLL
             }
             return result;
         }
-
         public Result<Panel> Get(string section, int row, int column)
         {
             Result<List<Panel>> panels = new Result<List<Panel>>();
@@ -173,21 +174,21 @@ namespace SolarFarm.BLL
             result = _repo.SaveQuit();
             return result;
         }
-        public Result<Panel> Update(Panel panel)
+        public Result<Panel> Update(Panel newPanel, Panel oldPanel)
         {
             Result<Panel> result = new Result<Panel>();
 
-            if (ValidatePanel(panel).Success)
+            if (ValidatePanel(newPanel).Success)
             {
-                result = _repo.Update(panel);
+                result = _repo.Update(newPanel, oldPanel);
             }
             else
             {
-                result = ValidatePanel(panel);
+                result = ValidatePanel(newPanel);
             }
             return result;
         }
-        public Result<Panel> PanelExists(Panel panel)
+        private Result<Panel> PanelExists(Panel panel)
         {
             Result<List<Panel>> panels = new Result<List<Panel>>();
             panels = _repo.GetAll();

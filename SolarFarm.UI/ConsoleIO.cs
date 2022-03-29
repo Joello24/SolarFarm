@@ -120,15 +120,20 @@ namespace SolarFarm.UI
                 Console.Write($"Row {panel.Row}: ");
                 holder = Console.ReadLine();
 
-                if (string.IsNullOrEmpty(holder) || !int.TryParse(holder, out int row))
+                if (string.IsNullOrEmpty(holder) || !int.TryParse(holder, out int row ))
                 {
+                    ret.Row = panel.Row;
+                }
+                else if (row > 250 || row < 1)
+                {
+                    Error("1-250");
                     ret.Row = panel.Row;
                 }
                 else
                 {
                     ret.Row = row;
                 }
-
+                
                 Console.Write($"Column {panel.Column}: ");
                 holder = Console.ReadLine();
 

@@ -28,7 +28,7 @@ namespace SolarFarm.Core.DTO
             sb.AppendLine($"Row: {Row}");
             sb.AppendLine($"Column: {Column}");
             sb.AppendLine($"Year: {Year}");
-            sb.AppendLine($"Material: {Material}");
+            sb.AppendLine($"Material: {(Material)Material}");
             sb.AppendLine($"Tracking: {isTracking}");
             sb.AppendLine("---------------------");
 
