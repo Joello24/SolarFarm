@@ -82,7 +82,6 @@ namespace SolarFarm.TEST
         [Test]
         public void TestAddBadColumn()
         {
-
             Result<Panel> result = new Result<Panel>();
 
             result = service.Add(panelInvalidColumn);
@@ -222,7 +221,7 @@ namespace SolarFarm.TEST
             result = service.Remove(InvalidPanel.Section, InvalidPanel.Row, InvalidPanel.Column);
 
             Assert.IsFalse(result.Success);
-            //Assert.AreEqual(service.Get(InvalidPanel.Section, validPanel.Row,validPanel.Column));
+            
         }
     }
 }
